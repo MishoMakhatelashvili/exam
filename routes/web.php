@@ -11,6 +11,36 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('admin', function () {
+    return view('welcome');
+});
+
+Route::get('admin', function () {
+    return view('admin');
+})->middleware('auth');
+
+
+
+Route::resource('categories', 'CategoryController',['except'=>['destroy']]);
+
+Route::prefix('admin')->group(function () {
+   
+});
+
+
+
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
